@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { SIZES } from '../constants'
+import { assets, SIZES } from '../constants'
+import { Image } from 'react-native'
 
 export const NFTTitle = () => {
   return (
@@ -16,17 +17,27 @@ export const EthPrice = () => {
     </View>
   )
 }
-export const ImageCmp = () => {
+export const ImageCmp = ({imgUrl, index}) => {
   return (
-    <View>
-      <Text>SubInfo</Text>
-    </View>
+    <Image 
+    source={imgUrl}
+    resizeMode='contain'
+    style={{
+        width: 48,
+        height: 48,
+        marginLeft: index === 0 ? 0 : -SIZES.font
+    }}
+    />
   )
 }
 export const People = () => {
   return (
-    <View>
-      <Text>SubInfo</Text>
+    <View style={{
+        flexDirection:'row'
+        }}>
+            {[assets.person02, assets.person03, assets.person04].map((imgUrl, index) => (
+                <ImageCmp imgUrl={imgUrl} index={index} />
+            ))}
     </View>
   )
 }
