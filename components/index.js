@@ -4,4 +4,5 @@ import FocusedStatusBar from "./FocusedStatusBar"
 import { CircleButton, RectButton } from "./Button"
 import DetailsBid from './DetailsBid'
 import DetailsDesc from "./DetailsDesc"
-export {HomeHeader, NFTCard, FocusedStatusBar, CircleButton, RectButton, DetailsDesc, DetailsBid}
+import { SubInfo } from "./SubInfo"
+export {HomeHeader, NFTCard, FocusedStatusBar, CircleButton, RectButton, DetailsDesc, DetailsBid, SubInfo}
