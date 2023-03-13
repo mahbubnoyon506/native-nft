@@ -15,7 +15,7 @@ import {
   RectButton,
   SubInfo,
 } from "../components";
-import { assets, SHADOWS, SIZES } from "../constants";
+import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 
 const DetailsHeader = ({ data, navigation }) => (
   <View style={{ width: "100%", height: 373 }}>
@@ -63,7 +63,7 @@ const Details = ({ route, navigation }) => {
       </View>
       <FlatList
         data={data.bids}
-        randerItem={({ item }) => <DetailsBid bid={item} />}
+        renderItem={({ item }) => <DetailsBid bid={item} />}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: SIZES.extraLarge * 3 }}
@@ -73,6 +73,13 @@ const Details = ({ route, navigation }) => {
             <SubInfo />
             <View style={{ padding: SIZES.font }}>
               <DetailsDesc data={data} />
+              {data.bids.length > 0 && (
+                <Text style={{
+                    fontSize: SIZES.font,
+                    fontFamily: FONTS.semiBold,
+                    color: COLORS.primary
+                }}>Current Bid</Text>
+              )}
             </View>
           </React.Fragment>
         )}
