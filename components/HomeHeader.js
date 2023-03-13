@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
+import { View, Text, TextInput } from "react-native";
 import React from "react";
 import { assets, COLORS, FONTS, SIZES } from "../constants";
 import { Image } from "react-native";
 
-const HomeHeader = () => {
+const HomeHeader = ({onSearch}) => {
   return (
     <View
       style={{
@@ -64,11 +64,23 @@ const HomeHeader = () => {
         </Text>
       </View>
       <View style={{marginTop: SIZES.font}}>
-          <View>
+          <View style={{
+            width: '100%',
+            borderRadius: SIZES.font,
+            backgroundColor: COLORS.gray,
+            flexDirection: 'row',
+            paddingHorizontal: SIZES.font,
+            paddingVertical: SIZES.small - 2
+          }}>
             <Image
             source={assets.search}
             resizeMode= 'contain'
             style={{width: 20, height: 20, marginRight: SIZES.base}}
+            />
+            <TextInput 
+            placeholder="Search NFTs"
+            style={{flex: 1}}
+            onChangeText={onSearch}
             />
           </View>
       </View>
